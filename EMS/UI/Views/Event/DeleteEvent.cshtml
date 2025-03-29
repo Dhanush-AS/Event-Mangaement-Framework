@@ -1,0 +1,11 @@
+﻿@model UI.Models.EventDetails
+
+<h2>Delete Event</h2>
+
+<h4>Are you sure you want to delete the event: @Model.EventName?</h4>
+
+<form asp-action="DeleteEventById" method="post">
+    <input type="hidden" asp-for="eventId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-controller="Event" asp-action="GetAllEvents" class="btn btn-secondary">Cancel</a>
+</form>

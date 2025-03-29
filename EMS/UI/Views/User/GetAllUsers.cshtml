@@ -1,0 +1,38 @@
+﻿@model IEnumerable<UI.Models.Users>
+
+@{
+    ViewData["Title"] = "All Users";
+}
+@{
+    Layout = "~/Views/User/Shared/Layout.cshtml";
+}
+
+<h2>All Users</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Userid</td>
+                <td>@user.Name</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <a asp-action="EditUser" asp-route-id="@user.Userid" class="btn btn-warning">Edit</a>
+                    <a asp-action="DeleteUser" asp-route-id="@user.Userid" class="btn btn-danger">Delete</a>
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

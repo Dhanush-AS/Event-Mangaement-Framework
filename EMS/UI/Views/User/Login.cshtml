@@ -1,0 +1,99 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Home/Shared/Home.cshtml";
+}
+
+<!-- Custom Styles -->
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        background: #f0f4f8;
+        padding: 20px;
+    }
+
+    .login-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 500px;
+        width: 100%;
+        text-align: center;
+    }
+
+        .login-card h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .login-card p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+    .btn-login {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+    }
+
+    .btn-admin {
+        background: #007bff;
+    }
+
+    .btn-participant {
+        background: #28a745;
+    }
+
+    .btn-login:hover {
+        opacity: 0.9;
+        transition: opacity 0.3s ease;
+    }
+
+    .login-options {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .login-option {
+        flex: 1;
+        min-width: 150px;
+    }
+
+        .login-option h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+</style>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>@ViewData["Title"]</h2>
+        <p>Select your role and log in:</p>
+        <div class="login-options">
+            <div class="login-option">
+                <h3>Admin Login</h3>
+                <a class="btn btn-login btn-admin" href="@Url.Action("AdminLogin", "User")">Login as Admin</a>
+            </div>
+            <div class="login-option">
+                <h3>Participant Login</h3>
+                <a class="btn btn-login btn-participant" href="@Url.Action("ParticipantLogin", "User")">Login as Participant</a>
+            </div>
+            <div class="login-option">
+                <h3>Participant Sign Up</h3>
+                <a class="btn btn-login btn-participant" href="@Url.Action("RegPage", "User")">Sign Up as Participant</a>
+            </div>
+        </div>
+    </div>
+</div>

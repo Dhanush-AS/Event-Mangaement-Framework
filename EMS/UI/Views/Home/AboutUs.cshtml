@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "AboutUs";
+    Layout = "~/Views/Home/shared/Home.cshtml";
+}
+
+<style>
+    body {
+        background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+        background-attachment: fixed;
+        background-size: cover;
+        color: black;
+        margin: 0;
+    }
+
+    .about-img {
+        width: 35%;
+        height: 45%;
+        animation: slideInLeft 3s ease-out;
+    }
+</style>
+<div class="container mt-5 pt-5">
+    <h1 class="text-center mb-4">About Us</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Our Mission</h3>
+            <p>At KAAR Infotech, we are dedicated to providing exceptional event management solutions tailored to your needs. Our goal is to create seamless, engaging, and impactful events that leave a lasting impression.</p>
+        </div>
+        <div class="col-md-6">
+            <h3>Our Team</h3>
+            <p>Our team consists of experienced professionals passionate about event management. With a diverse background in technology and event planning, we bring a unique perspective to every project.</p>
+        </div>
+    </div>
+    <div class="text-center mt-4">
+        <img src="~/images/team.jpg.jpg" alt="Our Team" class="img-fluid rounded-circle about-img">
+    </div>
+</div>
+

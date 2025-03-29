@@ -1,0 +1,58 @@
+﻿@model IEnumerable<UI.Models.Registration>
+<style>
+
+@{
+    ViewData["Title"] = "All Registrations";
+}
+.status-approved {
+    color: green;
+}
+.status-denied {
+    color: red;
+}
+.status-pending {
+    color: lightsteelblue;   
+}
+</style>
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>          
+            <th>Email</th>
+            <th>Event ID</th>
+            <th>Actions</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var registration in Model)
+        {
+            <tr>
+                <td>@registration.regId</td>
+                <td>@registration.Email</td>
+                <td>@registration.EventId</td>
+                <td class="@(registration.RegStatus == "Approved" ? "status-approved" :
+      registration.RegStatus == "Denied" ? "status-denied" :
+      registration.RegStatus == "pending" ? "status-pending" : "")">
+                    @registration.RegStatus
+                </td>
+
+                <td>
+                    <a asp-action="EditRegistration" asp-route-id="@registration.regId" class="btn btn-warning">Edit</a>
+                    <a asp-action="DeleteRegistration" asp-route-id="@registration.regId" class="btn btn-danger">Delete</a>
+                    <a asp-action="ApproveRegistrationPage"
+                       asp-controller="Admin"
+                       asp-route-id="@registration.regId"
+                       class="btn btn-info">Approve</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    <a href="@Url.Action("RegistrationCounts", "Registration")" class="btn btn-info">View Registration Counts by Event</a>
+</p>
+

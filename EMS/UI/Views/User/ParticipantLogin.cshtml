@@ -1,0 +1,127 @@
+﻿@model UI.Models.Users
+@{
+    ViewData["Title"] = "Participant Login";
+}
+
+<!-- Custom Styles -->
+<style>
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        background: #f9f9f9;
+        padding: 20px;
+    }
+
+    .login-card {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 400px;
+        width: 100%;
+    }
+
+        .login-card h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .form-group .form-control {
+            border-radius: 5px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group .text-danger {
+            font-size: 0.875rem;
+        }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            opacity: 0.9;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border: none;
+        color: white;
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        width: 100%;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            opacity: 0.9;
+        }
+
+    .login-card h6 {
+        margin-top: 10px;
+        text-align: center;
+        color: #007bff;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>Participant Login</h2>
+
+        <form asp-action="LogInPageParticipant" method="post">
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter email" aria-label="Enter your email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Enter password" aria-label="Enter your password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Username</label>
+                <input asp-for="Name" type="text" class="form-control" placeholder="Enter username" aria-label="Enter your username" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Role" class="control-label">Role</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="">--Select--</option>
+                    <option value="Participant">Participant</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+
+        <br />
+
+        <button class="btn btn-secondary" onclick="location.href='@Url.Action("SignUpPage")'">Sign Up</button>
+        <h6>New users click here!</h6>
+    </div>
+</div>

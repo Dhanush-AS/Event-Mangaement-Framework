@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Participant Dashboard";
+}
+
+<h2 class="text-center my-4">Participant Dashboard</h2>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <!-- Register for Event Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-3">Register For Event</h5>
+                    <p class="card-text text-muted">Click here to join an event and explore new opportunities.</p>
+                    <a href="@Url.Action("Get", "Participant")" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calendar-plus"></i> Go to Events
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Get Registered Events Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-3">Your Registered Events</h5>
+                    <p class="card-text text-muted">Click here to view all events you've registered for.</p>
+                    <a href="@Url.Action("GetAllRegistrationsParticipant", "Participant")" class="btn btn-primary btn-lg">
+                        <i class="fas fa-list"></i> View Events
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+    .card-title {
+        font-weight: 600;
+    }
+    .btn {
+        border-radius: 50px;
+    }
+</style>

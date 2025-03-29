@@ -1,0 +1,57 @@
+﻿@model IEnumerable<UI.Models.EventDetails>
+
+@{
+    ViewData["Title"] = "Event List";
+}
+
+<div class="container">
+
+    <!-- Display a message if there are no events -->
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No events available.
+        </div>
+    }
+    else
+    {
+        <!-- Group events by category -->
+        var groupedEvents = Model.GroupBy(e => e.EventCategory);
+
+        foreach (var group in groupedEvents)
+        {
+            <h5>@group.Key (Count: @group.Count())</h5>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var eventItem in group)
+                    {
+                        <tr>
+                            <td>@eventItem.eventId</td>
+                            <td>@eventItem.EventName</td>
+                            <td>@eventItem.EventDate.ToString("MM/dd/yyyy")</td>
+                            <td>@eventItem.Description</td>
+                            <td>@eventItem.Status</td>
+                            <td>
+                                <a href="@Url.Action("EditEvent", new { id = eventItem.eventId })" class="btn btn-primary btn-sm">Edit</a>
+                                <a href="@Url.Action("DeleteEvent", new { id = eventItem.eventId })" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    }
+    <div>
+        <a href="https://localhost:44373/Event/addnewevent" class="btn btn-success">Add New Event</a>
+    </div>
+</div>

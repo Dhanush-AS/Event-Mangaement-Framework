@@ -1,0 +1,32 @@
+﻿@model List<UI.Models.EventDetails>
+
+<h2>Available Events</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var eventDetail in Model)
+        {
+            <tr>
+                <td>@eventDetail.EventName</td>
+                <td>@eventDetail.Description</td>
+                <td>@eventDetail.EventDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Registration" asp-route-eventId="@eventDetail.eventId" class="btn btn-primary">Register</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

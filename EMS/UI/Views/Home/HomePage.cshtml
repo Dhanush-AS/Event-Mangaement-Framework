@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewData["Title"] = "HomePage";
+    Layout = "~/Views/Home/shared/Home.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero {
+            background-color: #60b7e6; /* Background color for hero section */
+            color: #fff; /* Text color for contrast */
+            padding: 100px 0; /* Increased padding for more height */
+        }
+
+            .hero h1 {
+                font-size: 4rem; /* Increased font size for main heading */
+                font-weight: bold; /* Bold text for emphasis */
+            }
+
+            .hero p {
+                font-size: 1.5rem; /* Increased font size for subheading */
+            }
+
+        .event-card {
+            margin-bottom: 30px;
+        }
+
+        .registration-form {
+            background-color: rgba(248, 249, 250, 0.8); /* Slightly transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            font-size: 1.25rem; /* Increased button size */
+            padding: 10px 20px; /* Increased padding */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero text-center">
+        <div class="container">
+            <h1 class="display-4">Welcome to the Event Management System</h1>
+            <p class="lead">Your one-stop solution for managing and registering for events.</p>
+            <a href="#registration" class="btn btn-primary btn-lg">Get Started</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

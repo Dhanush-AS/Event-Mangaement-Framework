@@ -1,0 +1,53 @@
+﻿@model UI.Models.Registration
+
+<h2>Register for Event</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
+}
+
+<!-- Display form-level validation errors -->
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+<form asp-action="Registration" method="post">
+    <div class="form-group">
+        <label asp-for="FirstName" class="control-label"></label>
+        <input asp-for="FirstName" class="form-control" />
+        <!-- Display field-level validation errors -->
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastName" class="control-label"></label>
+        <input asp-for="LastName" class="form-control" />
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CountryCode" class="control-label"></label>
+        <select asp-for="CountryCode" class="form-control">
+            <option value="+1">+1 (USA)</option>
+            <option value="+44">+44 (UK)</option>
+            <option value="+91">+91 (India)</option>
+        </select>
+        <span asp-validation-for="CountryCode" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PhoneNumber" class="control-label"></label>
+        <input asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="EventId" class="control-label"></label>
+        <input asp-for="EventId" class="form-control" readonly />
+        <span asp-validation-for="EventId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Register</button>
+</form>
+
